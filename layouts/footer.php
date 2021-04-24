@@ -68,6 +68,9 @@
         // });
     })
 </script>
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
 <script type="text/javascript">
     $("#kriteria").change(function() {
         var id_kriteria = $("#kriteria").val();

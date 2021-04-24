@@ -31,7 +31,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                <li class="nav-item menu-open">
+                <li class="nav-item">
                     <?php
                     if (empty($_GET['page'])) {
                         $url = 'dashboard';
@@ -52,6 +52,94 @@
                             </a>
                 </li>
                 <li class="nav-item">
+                    <?php if (($pecah == 'user') || ($pecah == 'pelamar') || ($pecah == 'kriteria') || ($pecah == 'subkriteria') || ($pecah == 'lowongan')) { ?>
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>
+                                Manajemen
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: block;">
+                        <?php } else {
+                        ?>
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Manajemen
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview" style="display: none;">
+                            <?php } ?>
+                            <li class="nav-item">
+                                <?php if ($pecah == 'user') {
+                                ?>
+                                    <a href="index.php?page=user" class="nav-link active">
+                                    <?php } else { ?>
+                                        <a href="index.php?page=user" class="nav-link">
+                                        <?php } ?>
+                                        <i class="nav-icon far fa-circle nav-icon"></i>
+                                        <p>
+                                            Manajemen User
+                                        </p>
+                                        </a>
+                            </li>
+                            <li class="nav-item">
+                                <?php if ($pecah == 'pelamar') {
+                                ?>
+                                    <a href="index.php?page=pelamar" class="nav-link active">
+                                    <?php } else { ?>
+                                        <a href="index.php?page=pelamar" class="nav-link">
+                                        <?php } ?>
+                                        <i class="nav-icon far fa-circle nav-icon"></i>
+                                        <p>
+                                            Manajemen Pelamar
+                                        </p>
+                                        </a>
+                            </li>
+                            <li class="nav-item">
+                                <?php if ($pecah == 'kriteria') {
+                                ?>
+                                    <a href="index.php?page=kriteria" class="nav-link active">
+                                    <?php } else { ?>
+                                        <a href="index.php?page=kriteria" class="nav-link">
+                                        <?php } ?>
+                                        <i class="nav-icon far fa-circle nav-icon"></i>
+                                        <p>
+                                            Manajemen Kriteria
+                                        </p>
+                                        </a>
+                            </li>
+                            <li class="nav-item">
+                                <?php if ($pecah == 'subkriteria') {
+                                ?>
+                                    <a href="index.php?page=subkriteria" class="nav-link active">
+                                    <?php } else { ?>
+                                        <a href="index.php?page=subkriteria" class="nav-link">
+                                        <?php } ?>
+                                        <i class="nav-icon far fa-circle nav-icon"></i>
+                                        <p>
+                                            Manajemen Sub Kriteria
+                                        </p>
+                                        </a>
+                            </li>
+                            <li class="nav-item">
+                                <?php if ($pecah == 'lowongan') {
+                                ?>
+                                    <a href="index.php?page=lowongan" class="nav-link active">
+                                    <?php } else { ?>
+                                        <a href="index.php?page=lowongan" class="nav-link">
+                                        <?php } ?>
+                                        <i class="nav-icon far fa-circle nav-icon"></i>
+                                        <p>
+                                            Manajemen Lowongan
+                                        </p>
+                                        </a>
+                            </li>
+                            </ul>
+                </li>
+                <li class="nav-item">
                     <?php if ($pecah == 'profile') {
                     ?>
                         <a href="index.php?page=profile" class="nav-link active">
@@ -64,132 +152,66 @@
                             </p>
                             </a>
                 </li>
-
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
-                        <p>
-                            Manajemen
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview" style="display: none;">
-                        <li class="nav-item">
-                            <?php if ($pecah == 'user') {
-                            ?>
-                                <a href="index.php?page=user" class="nav-link active">
-                                <?php } else { ?>
-                                    <a href="index.php?page=user" class="nav-link">
-                                    <?php } ?>
-                                    <i class="nav-icon far fa-circle nav-icon"></i>
-                                    <p>
-                                        Manajemen User
-                                    </p>
-                                    </a>
-                        </li>
-                        <li class="nav-item">
-                            <?php if ($pecah == 'pelamar') {
-                            ?>
-                                <a href="index.php?page=pelamar" class="nav-link active">
-                                <?php } else { ?>
-                                    <a href="index.php?page=pelamar" class="nav-link">
-                                    <?php } ?>
-                                    <i class="nav-icon far fa-circle nav-icon"></i>
-                                    <p>
-                                        Manajemen Pelamar
-                                    </p>
-                                    </a>
-                        </li>
-                        <li class="nav-item">
-                            <?php if ($pecah == 'kriteria') {
-                            ?>
-                                <a href="index.php?page=kriteria" class="nav-link active">
-                                <?php } else { ?>
-                                    <a href="index.php?page=kriteria" class="nav-link">
-                                    <?php } ?>
-                                    <i class="nav-icon far fa-circle nav-icon"></i>
-                                    <p>
-                                        Manajemen Kriteria
-                                    </p>
-                                    </a>
-                        </li>
-                        <li class="nav-item">
-                            <?php if ($pecah == 'subkriteria') {
-                            ?>
-                                <a href="index.php?page=subkriteria" class="nav-link active">
-                                <?php } else { ?>
-                                    <a href="index.php?page=subkriteria" class="nav-link">
-                                    <?php } ?>
-                                    <i class="nav-icon far fa-circle nav-icon"></i>
-                                    <p>
-                                        Manajemen Sub Kriteria
-                                    </p>
-                                    </a>
-                        </li>
-                        <li class="nav-item">
-                            <?php if ($pecah == 'lowongan') {
-                            ?>
-                                <a href="index.php?page=lowongan" class="nav-link active">
-                                <?php } else { ?>
-                                    <a href="index.php?page=lowongan" class="nav-link">
-                                    <?php } ?>
-                                    <i class="nav-icon far fa-circle nav-icon"></i>
-                                    <p>
-                                        Manajemen Lowongan
-                                    </p>
-                                    </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item menu-is-opening menu-open">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fas fa-calculator"></i>
-                        <p>
-                            Metode AHP
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview" style="display: block;">
-                        <li class="nav-item">
-                            <?php if ($pecah == 'perbandingan_kriteria') {
-                            ?>
-                                <a href="index.php?page=perbandingan_kriteria" class="nav-link active">
-                                <?php } else { ?>
-                                    <a href="index.php?page=perbandingan_kriteria" class="nav-link">
-                                    <?php } ?>
-                                    <i class="nav-icon far fa-circle nav-icon"></i>
-                                    <p>
-                                        Perbandingan Kriteria
-                                    </p>
-                                    </a>
-                        </li>
-                        <li class="nav-item">
-                            <?php if ($pecah == 'perbandingan_alternatif') {
-                            ?>
-                                <a href="index.php?page=perbandingan_alternatif" class="nav-link active">
-                                <?php } else { ?>
-                                    <a href="index.php?page=perbandingan_alternatif" class="nav-link">
-                                    <?php } ?>
-                                    <i class="nav-icon far fa-circle nav-icon"></i>
-                                    <p>
-                                        Perbandingan Alternatif
-                                    </p>
-                                    </a>
-                        </li>
-                        <li class="nav-item">
-                            <?php if ($pecah == 'hasil') {
-                            ?>
-                                <a href="index.php?page=hasil" class="nav-link active">
-                                <?php } else { ?>
-                                    <a href="index.php?page=hasil" class="nav-link">
-                                    <?php } ?>
-                                    <i class="nav-icon far fa-circle nav-icon"></i>
-                                    <p>
-                                        Hasil Perhitungan
-                                    </p>
-                                    </a>
-                        </li>
-                    </ul>
+                    <?php if (($pecah == 'perbandingan_kriteria') || ($pecah == 'perbandingan_alternatif') || ($pecah == 'hasil')) { ?>
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-calculator"></i>
+                            <p>
+                                Metode AHP
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: block;">
+                        <?php } else { ?>
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-calculator"></i>
+                                <p>
+                                    Metode AHP
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview" style="display: none;">
+                            <?php } ?>
+                            <li class="nav-item">
+                                <?php if ($pecah == 'perbandingan_kriteria') {
+                                ?>
+                                    <a href="index.php?page=perbandingan_kriteria" class="nav-link active">
+                                    <?php } else { ?>
+                                        <a href="index.php?page=perbandingan_kriteria" class="nav-link">
+                                        <?php } ?>
+                                        <i class="nav-icon far fa-circle nav-icon"></i>
+                                        <p>
+                                            Perbandingan Kriteria
+                                        </p>
+                                        </a>
+                            </li>
+                            <li class="nav-item">
+                                <?php if ($pecah == 'perbandingan_alternatif') {
+                                ?>
+                                    <a href="index.php?page=perbandingan_alternatif" class="nav-link active">
+                                    <?php } else { ?>
+                                        <a href="index.php?page=perbandingan_alternatif" class="nav-link">
+                                        <?php } ?>
+                                        <i class="nav-icon far fa-circle nav-icon"></i>
+                                        <p>
+                                            Perbandingan Alternatif
+                                        </p>
+                                        </a>
+                            </li>
+                            <li class="nav-item">
+                                <?php if ($pecah == 'hasil') {
+                                ?>
+                                    <a href="index.php?page=hasil" class="nav-link active">
+                                    <?php } else { ?>
+                                        <a href="index.php?page=hasil" class="nav-link">
+                                        <?php } ?>
+                                        <i class="nav-icon far fa-circle nav-icon"></i>
+                                        <p>
+                                            Hasil Perhitungan
+                                        </p>
+                                        </a>
+                            </li>
+                            </ul>
                 </li>
                 <li class="nav-item">
                     <?php if ($pecah == 'laporan') {
