@@ -136,8 +136,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-1"></div>
-                                    <div class="col-sm-4">
+                                    <!-- <div class="col-sm-1"></div> -->
+                                    <div class="col-sm-3">
                                         <div class="form-group">
                                             <label>Fullname</label>
                                             <input type="text" value="<?php echo $_SESSION['fullname'] ?>" name="nama_lengkap" class="form-control" placeholder="Fullname">
@@ -177,7 +177,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-3">
                                         <div class="form-group">
                                             <label>NIK</label>
                                             <input type="number" value="<?php echo $nik ?>" name="nik" class="form-control" placeholder="nik">
@@ -198,6 +198,30 @@
                                                 <option value="Menikah">Menikah</option>
                                                 <option value="Cerai">Cerai</option>
                                             </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Photo</label>
+                                            <input type="file" name="photo" class="form-control" placeholder="Photo">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>Pendidikan Terakhir</label>
+                                            <select name="status" class="form-control">
+                                                <option selected value="<?php echo $status ?>"><?= ucwords($status); ?></option>
+                                                <option value="Belum Menikah">Belum Menikah</option>
+                                                <option value="Menikah">Menikah</option>
+                                                <option value="Cerai">Cerai</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nama Sekolah / Universitas</label>
+                                            <input type="number" value="<?php echo $no_telp ?>" name="no_telp" class="form-control" placeholder="Phone">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Pengalaman Bekerja</label>
+                                            <input type="date" name="mulai_kerja" class="form-control">
+                                            <input type="date" name="akhir_kerja" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label>Photo</label>

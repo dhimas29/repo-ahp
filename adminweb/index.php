@@ -35,7 +35,17 @@
                             if (empty($_GET['page'])) {
                                 echo "Dashboard";
                             } else {
-                                echo ucwords($_GET['page']);
+                                if ($_GET['page'] == 'hasil_hitung') {
+                                    echo "Hasil Hitung";
+                                } elseif ($_GET['page'] == 'hasil_ranking') {
+                                    echo "Hasil Perangkingan";
+                                } elseif ($_GET['page'] == 'perbandingan_kriteria') {
+                                    echo "Perbandingan Kriteria";
+                                } elseif ($_GET['page'] == 'perbandingan_alternatif') {
+                                    echo "Perbandingan Alternatif";
+                                } else {
+                                    echo ucwords($_GET['page']);
+                                }
                             } ?></h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
@@ -46,7 +56,17 @@
                                 if (empty($_GET['page'])) {
                                     echo "Dashboard";
                                 } else {
-                                    echo ucwords($_GET['page']);
+                                    if ($_GET['page'] == 'hasil_hitung') {
+                                        echo "Hasil Hitung";
+                                    } elseif ($_GET['page'] == 'hasil_ranking') {
+                                        echo "Hasil Perangkingan";
+                                    } elseif ($_GET['page'] == 'perbandingan_kriteria') {
+                                        echo "Perbandingan Kriteria";
+                                    } elseif ($_GET['page'] == 'perbandingan_alternatif') {
+                                        echo "Perbandingan Alternatif";
+                                    } else {
+                                        echo ucwords($_GET['page']);
+                                    }
                                 } ?>
                             </li>
                         </ol>
@@ -86,11 +106,23 @@
             case 'hasil':
                 include 'hasil.php';
                 break;
+            case 'hasil_hitung':
+                include 'hasil_hitung.php';
+                break;
+            case 'hasil_ranking':
+                include 'hasil_ranking.php';
+                break;
             case 'laporan':
                 include 'laporan.php';
                 break;
             case 'profile':
                 include 'profile.php';
+                break;
+            case 'pengalaman':
+                include 'pengalaman.php';
+                break;
+            case 'pendidikan':
+                include 'pendidikan.php';
                 break;
             case 'lowongan':
                 include 'lowongan.php';

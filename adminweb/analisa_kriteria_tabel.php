@@ -153,8 +153,7 @@ if (isset($_POST['hapus'])) {
                                             <td>
                                                 <?php
                                                 if ($baris['id_kriteria'] == $kolom['id_kriteria']) {
-                                                    $c = 1 / $kolom['jumlah_kriteria'];
-
+                                                    $c = (1 / $kolom['jumlah_kriteria']);
                                                     $query = mysqli_query($conn, "UPDATE analisa_kriteria SET hasil_analisa_kriteria='$c' WHERE kriteria_pertama='$baris[id_kriteria]' AND kriteria_kedua='$kolom[id_kriteria]'");
                                                     echo number_format($c, 4, '.', ',');
                                                 } else {

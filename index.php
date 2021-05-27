@@ -91,7 +91,7 @@
                     <a class="page-scroll" href="#contact">Contact Us</a>
                   </li>
                   <li>
-                    <a href="#lowongan" data-toggle="modal">Lowongan</a>
+                    <a href="infolowongan.php#lowongan">Lowongan</a>
                   </li>
                   <li>
                     <a href="#login" data-toggle="modal">Login</a>
@@ -110,40 +110,7 @@
   <!-- header end -->
 
   <!-- Modal Lowongan -->
-  <div class="modal fade" id="lowongan">
-    <form name="login" action="proses/proseslogin.php" method="POST" onSubmit="return validasi(this)">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header" bgcolor="black">
-            <!-- <img src="images/logo-kapa.png" width="30%" alt=""> -->
-            <!-- <h1><span>Multidaya</span>Medika</h1> -->
-            <div class="modal-title">
-              <center>
-                <h4>Pemberitahuan Lowongan</h4>
-              </center>
-            </div>
-          </div>
-          <div class="modal-body">
-            <div class="form-horizontal">
-              <?php
-              include 'koneksi.php';
-              $query = mysqli_query($conn, "SELECT * FROM postlowongan order by id desc limit 1");
-              while ($row = mysqli_fetch_array($query)) {
-              ?>
-                <p><?= $row['post']; ?></p>
-              <?php }
-              ?>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <!-- <button class="btn btn-danger" type="reset" data-dismiss="modal">Batal</button> -->
-            <center><a href="#register" class="btn btn-success" data-toggle="modal" data-dismiss="modal"> Daftar</a></center>
-            <!-- <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-user"></span> Daftar</button> -->
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
+
   <!-- Modal End Lowongan -->
 
   <!-- Modal Login -->
@@ -274,7 +241,7 @@
   <!-- End Modal Register -->
 
   <!-- Start Slider Area -->
-  <div id=" home" class="slider-area">
+  <div id="home" class="slider-area">
     <div class="bend niceties preview-2">
       <div id="ensign-nivoslider" class="slides">
         <img src="home/img/slider/slide1.jpg" alt="" title="#slider-direction-1" />

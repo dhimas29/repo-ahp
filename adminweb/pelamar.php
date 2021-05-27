@@ -27,6 +27,9 @@
                                                 <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Jenis Kelamin</th>
                                                 <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">No. Telp</th>
                                                 <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Email</th>
+                                                <!-- <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Nilai Wawancara</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Nilai Tertulis</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Nilai Praktek</th> -->
                                                 <!-- <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Alamat</th> -->
                                                 <th colspan="2">
                                                     <center>Aksi</center>
@@ -38,8 +41,10 @@
                                             $p      = new PagingPelamar();
                                             $batas  = 5;
                                             $posisi = $p->cariPosisi($batas);
-                                            $tampil = mysqli_query($conn, "SELECT * FROM tb_calon_karyawan
-                                                        order by id asc limit $posisi,$batas");
+                                            $tampil = mysqli_query($conn, "SELECT *,tb_calon_karyawan.id as id_calon FROM tb_calon_karyawan
+                                            left join tb_nilai on tb_nilai.id_calon_karyawan = tb_calon_karyawan.id
+                                            group by id_calon
+                                            order by id_calon asc limit $posisi,$batas");
                                             $no = $posisi + 1;
                                             while ($row = mysqli_fetch_array($tampil)) { ?>
                                                 <tr>
@@ -49,12 +54,15 @@
                                                     <td><?php echo $row['jenis_kelamin']; ?></td>
                                                     <td><?php echo $row['no_telp']; ?></td>
                                                     <td><?php echo $row['email']; ?></td>
+                                                    <!-- <td><?php echo $row['nilai_wawancara']; ?></td>
+                                                    <td><?php echo $row['nilai_tertulis']; ?></td>
+                                                    <td><?php echo $row['nilai_praktek']; ?></td> -->
                                                     <!-- <td><?php echo $row['alamat']; ?></td> -->
-                                                    <td><a href="" data-bs-toggle="modal" data-bs-target="#modaldetail<?= $row['id']; ?>" class="btn btn-sm btn-info btn-block">Detail</a></td>
-                                                    <td><a href="" data-bs-toggle="modal" data-bs-target="#modalhapus<?= $row['id']; ?>" class="btn btn-sm btn-danger btn-block">Hapus</a></td>
+                                                    <td><a href="" data-bs-toggle="modal" data-bs-target="#modaldetail<?= $row['id_calon']; ?>" class="btn btn-sm btn-info btn-block">Detail</a></td>
+                                                    <td><a href="" data-bs-toggle="modal" data-bs-target="#modalhapus<?= $row['id_calon']; ?>" class="btn btn-sm btn-danger btn-block">Hapus</a></td>
                                                 </tr>
                                                 <!-- Modal Detail -->
-                                                <div class="modal fade" id="modaldetail<?= $row['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal fade" id="modaldetail<?= $row['id_calon']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" style="max-width: 800px;">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -62,6 +70,14 @@
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
+                                                                <div class="mr-3 ml-3">
+                                                                    <div class="fc-toolbar-chunk">
+                                                                        <div class="btn-group">
+                                                                            <button data-bs-toggle="modal" data-bs-dismiss="modal" data-bs-target="#modaldetail<?= $row['id_calon']; ?>" class="fc-dayGridMonth-button btn btn-primary active" type="button">Profile</button>
+                                                                            <button data-bs-toggle="modal" data-bs-dismiss="modal" data-bs-target="#modalnilai<?= $row['id_calon']; ?>" class="fc-timeGridWeek-button btn btn-primary" type="button">Nilai</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                                 <div class="card mb-3 mr-3 ml-3" style="max-width: 1070px;">
                                                                     <div class="row g-0">
                                                                         <div class="card-body">
@@ -82,7 +98,7 @@
                                                                                     <div class="col-sm-1"></div>
                                                                                     <div class="col-sm-4">
                                                                                         <?php
-                                                                                        $querys = mysqli_query($conn, "SELECT * FROM tb_calon_karyawan where id='$row[id]'");
+                                                                                        $querys = mysqli_query($conn, "SELECT * FROM tb_calon_karyawan where id='$row[id_calon]'");
                                                                                         while ($rows = mysqli_fetch_array($querys)) {
                                                                                             $nik = $rows['nik'];
                                                                                             $nama = $rows['nama_lengkap'];
@@ -177,13 +193,76 @@
                                                 </div>
                                                 <!-- End Modal Detail -->
 
+                                                <!-- Modal Nilai -->
+                                                <div class="modal fade" id="modalnilai<?= $row['id_calon']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" style="max-width: 800px;">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Nilai</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="mr-3 ml-3">
+                                                                    <div class="fc-toolbar-chunk">
+                                                                        <div class="btn-group">
+                                                                            <button data-bs-toggle="modal" data-bs-dismiss="modal" data-bs-target="#modaldetail<?= $row['id_calon']; ?>" class="fc-dayGridMonth-button btn btn-primary" type="button">Profile</button>
+                                                                            <button data-bs-toggle="modal" data-bs-dismiss="modal" data-bs-target="#modalnilai<?= $row['id_calon']; ?>" class="fc-timeGridWeek-button btn btn-primary active" type="button">Nilai</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card mb-3 mr-3 ml-3" style="max-width: 1070px;">
+                                                                    <div class="row g-0">
+                                                                        <div class="card-body">
+                                                                            <form action="../proses/prosestambah.php?module=pelamar_nilai&act=input" onSubmit="return validasi(this)" method="POST" enctype="multipart/form-data">
+                                                                                <div class="row">
+                                                                                    <?php
+                                                                                    $view = mysqli_query($conn, "SELECT * FROM tb_calon_karyawan
+                                                                                    WHERE id='$row[id_calon]'");
+                                                                                    while ($r = mysqli_fetch_array($view)) {
+                                                                                        $id = $r['id'];
+                                                                                    }
+                                                                                    ?>
+                                                                                </div>
+                                                                                <input type="hidden" name="id_calon_karyawan" value="<?= $id ?>">
+                                                                                <?php
+                                                                                $kritera = mysqli_query($conn, "SELECT * FROM tb_kriteria where id_kriteria != 'C1' && id_kriteria != 'C2'");
+                                                                                while ($rowfw = mysqli_fetch_array($kritera)) : ?>
+                                                                                    <div class="form-group">
+                                                                                        <label><?= $rowfw['nama_kriteria'] ?></label>
+                                                                                        <?php
+                                                                                        $alter = 0;
+                                                                                        $cek = mysqli_query($conn, "SELECT * FROM tb_nilai join tb_alternatif on tb_nilai.id_alternatif = tb_alternatif.id_alternatif where id_calon_karyawan = '$id'");
+                                                                                        while ($fetch_cek = mysqli_fetch_array($cek)) {
+                                                                                            if (($fetch_cek['id_kriteria'] == $rowfw['id_kriteria'])) {
+                                                                                                $alter = $fetch_cek['nilai'];
+                                                                                            }
+                                                                                        }
+                                                                                        ?>
+                                                                                        <input type="text" class="form-control" name="kriteria[<?= $rowfw["id_kriteria"] ?>]" id="<?php echo $rowfw['nama_alternatif']; ?>" value="<?= ($alter == "") ? "" : $alter ?>">
+                                                                                    </div>
+                                                                                <?php endwhile; ?>
+                                                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                                    <!-- <button type="submit" class="btn btn-primary">Save changes</button> -->
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Modal Detail -->
+
                                                 <!-- Modal Hapus -->
-                                                <div class="modal fade" id="modalhapus<?= $row['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal fade" id="modalhapus<?= $row['id_calon']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <?php
-                                                                $querys = mysqli_query($conn, "SELECT * FROM tb_calon_karyawan where id='$row[id]'");
+                                                                $querys = mysqli_query($conn, "SELECT * FROM tb_calon_karyawan where id='$row[id_calon]'");
                                                                 while ($rows = mysqli_fetch_array($querys)) {
                                                                 ?>
                                                                     <h5 class="modal-title" id="exampleModalLabel">Yakin ingin menghapus data <?= $rows['nik']; ?> ?</h5>
@@ -217,7 +296,6 @@
                                                 <th rowspan="1" colspan="1">Jenis Kelamin</th>
                                                 <th rowspan="1" colspan="1">No. Telp</th>
                                                 <th rowspan="1" colspan="1">Email</th>
-                                                <th rowspan="1" colspan="1">Alamat</th>
                                                 <th rowspan="1" colspan="2">
                                                     <center>Aksi</center>
                                                 </th>

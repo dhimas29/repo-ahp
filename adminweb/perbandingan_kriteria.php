@@ -65,7 +65,7 @@ while ($row = mysqli_fetch_array($kriterias)) {
                                                         <div class="form-group">
                                                             <select class="form-control" name="nl<?= $no ?>">
                                                                 <?php
-                                                                $rows = mysqli_query($conn, "SELECT * FROM tb_nilai ORDER BY id_nilai ASC");
+                                                                $rows = mysqli_query($conn, "SELECT * FROM tb_preferensi ORDER BY id_nilai ASC");
                                                                 while ($row = mysqli_fetch_array($rows)) :
                                                                 ?>
                                                                     <option value="<?= $row['jumlah_nilai'] ?>"><?= $row['jumlah_nilai'] ?> - <?= $row['keterangan_nilai'] ?></option>

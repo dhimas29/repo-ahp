@@ -100,7 +100,7 @@ if (isset($_GET['id'])) {
                                                         <div class="form-group">
                                                             <select class="form-control" name="nl<?= $no ?>">
                                                                 <?php
-                                                                $stmt1 = mysqli_query($conn, "SELECT * FROM tb_nilai ORDER BY id_nilai ASC");
+                                                                $stmt1 = mysqli_query($conn, "SELECT * FROM tb_preferensi ORDER BY id_nilai ASC");
                                                                 while ($row2 = mysqli_fetch_array($stmt1)) : ?>
                                                                     <option value="<?= $row2['jumlah_nilai'] ?>"><?= $row2['jumlah_nilai'] ?> - <?= $row2['keterangan_nilai'] ?></option>
                                                                 <?php endwhile; ?>

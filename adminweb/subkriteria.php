@@ -116,7 +116,8 @@
                                             <?php
                                                 $no++;
                                             }
-                                            $jmldata = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_kriteria"));
+                                            $jmldata = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_alternatif 
+                                            left join tb_kriteria on tb_kriteria.id_kriteria = tb_alternatif.id_kriteria"));
                                             $jmlhalaman  = $p->jumlahHalaman($jmldata, $batas);
                                             $linkHalaman = $p->navHalaman($_GET['halaman'], $jmlhalaman);
                                             ?>
