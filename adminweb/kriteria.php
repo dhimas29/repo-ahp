@@ -124,22 +124,10 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <!-- <div class="col-sm-12 col-md-5">
-                                                <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">
-                                                    <?php
-                                                    // $query = mysqli_query($conn, "SELECT * FROM tb_user");
-                                                    // $count = mysqli_num_rows($query);
-                                                    // echo "1 to " . $count;
-                                                    ?>
-                                                </div>
-                                            </div> -->
-                                <!-- <div class="col-sm-12 col-md-7"> -->
-                                <!-- <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate"> -->
+
                                 <ul class="pagination">
                                     <?php echo "$linkHalaman"; ?>
                                 </ul>
-                                <!-- </div> -->
-                                <!-- </div> -->
                             </div>
                         </div>
                     </div>

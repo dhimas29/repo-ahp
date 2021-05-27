@@ -59,11 +59,16 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                             </thead>
                             <tbody>
                                 <?php
+                                $p      = new PagingHasil();
+                                $batas  = 5;
+                                $posisi = $p->cariPosisi($batas);
                                 $no = 1;
                                 $alt1a = mysqli_query($conn, "SELECT *,tb_calon_karyawan.id as id_calon FROM tb_calon_karyawan 
                                 left join tb_pendidikan_kerja on tb_pendidikan_kerja.id_calon_karyawan = tb_calon_karyawan.id 
                                 left join tb_pengalaman_kerja on tb_pengalaman_kerja.id_calon_karyawan = tb_calon_karyawan.id
-                                group by tb_calon_karyawan.id");
+                                group by tb_calon_karyawan.id
+                                order by id_kriteria asc limit $posisi,$batas
+                                ");
                                 while ($row1 = mysqli_fetch_array($alt1a)) :
                                 ?>
                                     <tr>
@@ -80,21 +85,23 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                                         ?>
                                             <td><?= number_format($rusoz['skor_alt_kri'], 4) ?></td>
                                         <?php endwhile; ?>
-                                        <?php
-                                        // $usoz = mysqli_query($conn, "SELECT * FROM tb_calon_karyawan  
-                                        // left join jum_alt_kri on tb_kk_pengajuan.id_alternatif = jum_alt_kri.id_alternatif 
-                                        // where tb_kk_pengajuan.id_kk = '$row1[id_kk]'
-                                        // order by id_kk_pengajuan asc
-                                        // ");
-                                        // while ($rusoz = mysqli_fetch_array($usoz)) :
-                                        ?>
-                                        <!-- <td></td> -->
                                     <?php endwhile; ?>
                                     </tr>
-                                    <?php //endwhile; 
+                                    <?php $jmldata = mysqli_num_rows(mysqli_query($conn, "SELECT *,tb_calon_karyawan.id as id_calon FROM tb_calon_karyawan 
+                                    left join tb_pendidikan_kerja on tb_pendidikan_kerja.id_calon_karyawan = tb_calon_karyawan.id 
+                                    left join tb_pengalaman_kerja on tb_pengalaman_kerja.id_calon_karyawan = tb_calon_karyawan.id
+                                    group by tb_calon_karyawan.id
+                                    order by id_kriteria asc "));
+                                    $jmlhalaman  = $p->jumlahHalaman($jmldata, $batas);
+                                    $linkHalaman = $p->navHalaman($_GET['halaman'], $jmlhalaman);
                                     ?>
                             </tbody>
                         </table>
+                        <div class="row">
+                            <ul class="pagination">
+                                <?php echo "$linkHalaman"; ?>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <!-- /.card-body -->

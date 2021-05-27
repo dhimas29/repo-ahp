@@ -269,20 +269,20 @@
                                 </ul>
                     </li>
                 <?php endif; ?>
-                <?php if (($_SESSION['level'] == 'admin') &&  ($_SESSION['level'] == 'manager')) : ?>
-                    <!-- <li class="nav-item">
-                    <?php if ($pecah == 'laporan') {
-                    ?>
-                        <a href="index.php?page=laporan" class="nav-link active">
-                        <?php } else { ?>
-                            <a href="index.php?page=laporan" class="nav-link">
-                            <?php } ?>
-                            <i class="nav-icon fas fa-folder"></i>
-                            <p>
-                                Laporan
-                            </p>
-                            </a>
-                </li> -->
+                <?php if (($_SESSION['level'] == 'admin') || ($_SESSION['level'] == 'manager')) : ?>
+                    <li class="nav-item">
+                        <?php if ($pecah == 'laporan') {
+                        ?>
+                            <a href="index.php?page=laporan" class="nav-link active">
+                            <?php } else { ?>
+                                <a href="index.php?page=laporan" class="nav-link">
+                                <?php } ?>
+                                <i class="nav-icon fas fa-folder"></i>
+                                <p>
+                                    Laporan
+                                </p>
+                                </a>
+                    </li>
                 <?php endif; ?>
             </ul>
         </nav>

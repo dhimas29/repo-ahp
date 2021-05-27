@@ -283,7 +283,10 @@
                                             <?php
                                                 $no++;
                                             }
-                                            $jmldata = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_kriteria"));
+                                            $jmldata = mysqli_num_rows(mysqli_query($conn, "SELECT *,tb_calon_karyawan.id as id_calon FROM tb_calon_karyawan
+                                            left join tb_nilai on tb_nilai.id_calon_karyawan = tb_calon_karyawan.id
+                                            group by id_calon
+                                            order by id_calon asc"));
                                             $jmlhalaman  = $p->jumlahHalaman($jmldata, $batas);
                                             $linkHalaman = $p->navHalaman($_GET['halaman'], $jmlhalaman);
                                             ?>

@@ -50,17 +50,20 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                             </thead>
                             <tbody>
                                 <?php
+                                $p      = new PagingHasilHitung();
+                                $batas  = 5;
+                                $posisi = $p->cariPosisi($batas);
                                 $value = 0;
                                 $jml_kriteria = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_kriteria"));
                                 $datakk = mysqli_query(
                                     $conn,
                                     "SELECT *,
-                            tb_nilai.id_alternatif as altrid,
-                            tb_alternatif.id_kriteria as alid 
-                            FROM tb_nilai 
-                            left join tb_alternatif on tb_nilai.id_alternatif = tb_alternatif.id_alternatif
-                            left join tb_kriteria on tb_alternatif.id_kriteria = tb_kriteria.id_kriteria
-                            "
+                                    tb_nilai.id_alternatif as altrid,
+                                    tb_alternatif.id_kriteria as alid 
+                                    FROM tb_nilai 
+                                    left join tb_alternatif on tb_nilai.id_alternatif = tb_alternatif.id_alternatif
+                                    left join tb_kriteria on tb_alternatif.id_kriteria = tb_kriteria.id_kriteria
+                                    "
                                 );
                                 while ($ro = mysqli_fetch_array($datakk)) : ?>
                                 <?php
@@ -83,9 +86,9 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                                 ?>
                                 <?php
                                 $data = mysqli_query($conn, "SELECT * FROM tb_nilai 
-                        left join tb_calon_karyawan on tb_calon_karyawan.id = tb_nilai.id_calon_karyawan 
-                        left join ranking on ranking.id_calon_karyawan = tb_nilai.id_calon_karyawan
-					group by tb_nilai.id_calon_karyawan order by ranking.skor_bobot desc");
+                                left join tb_calon_karyawan on tb_calon_karyawan.id = tb_nilai.id_calon_karyawan 
+                                left join ranking on ranking.id_calon_karyawan = tb_nilai.id_calon_karyawan
+                                group by tb_nilai.id_calon_karyawan order by ranking.skor_bobot desc");
                                 while ($rowdata = mysqli_fetch_array($data)) : ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
@@ -133,8 +136,26 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                                         <!-- <td><?= $rowqs['label'] ?></td> -->
                                     <?php endwhile; ?>
                                     </tr>
+                                    <?php $jmldata = mysqli_num_rows(mysqli_query(
+                                        $conn,
+                                        "SELECT *,
+                                    tb_nilai.id_alternatif as altrid,
+                                    tb_alternatif.id_kriteria as alid 
+                                    FROM tb_nilai 
+                                    left join tb_alternatif on tb_nilai.id_alternatif = tb_alternatif.id_alternatif
+                                    left join tb_kriteria on tb_alternatif.id_kriteria = tb_kriteria.id_kriteria
+                                    "
+                                    ));
+                                    $jmlhalaman  = $p->jumlahHalaman($jmldata, $batas);
+                                    $linkHalaman = $p->navHalaman($_GET['halaman'], $jmlhalaman);
+                                    ?>
                             </tbody>
                         </table>
+                        <div class="row">
+                            <ul class="pagination">
+                                <?php echo "$linkHalaman"; ?>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -43,13 +43,16 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                             </thead>
                             <tbody>
                                 <?php
+                                $p      = new PagingHasilRanking();
+                                $batas  = 5;
+                                $posisi = $p->cariPosisi($batas);
                                 $no = 1;
                                 $alt1a = mysqli_query($conn, "SELECT *,ranking.label as rank,tb_nilai.periode as period 
-                        FROM tb_nilai 
-                        left join ranking on tb_nilai.id_calon_karyawan = ranking.id_calon_karyawan
-                        left join tb_calon_karyawan on tb_nilai.id_calon_karyawan = tb_calon_karyawan.id 
-                        group by tb_nilai.id_calon_karyawan
-                        order by ranking.skor_bobot desc");
+                                FROM tb_nilai 
+                                left join ranking on tb_nilai.id_calon_karyawan = ranking.id_calon_karyawan
+                                left join tb_calon_karyawan on tb_nilai.id_calon_karyawan = tb_calon_karyawan.id 
+                                group by tb_nilai.id_calon_karyawan
+                                order by ranking.skor_bobot desc");
                                 while ($row1 = mysqli_fetch_array($alt1a)) : ?>
                                     <?php
                                     if ($no <= 1) {
@@ -67,8 +70,22 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                                         <!-- <td><?= $row1['period'] ?></td> -->
                                     </tr>
                                 <?php endwhile; ?>
+                                <?php $jmldata = mysqli_num_rows(mysqli_query($conn, "SELECT *,ranking.label as rank,tb_nilai.periode as period 
+                                FROM tb_nilai 
+                                left join ranking on tb_nilai.id_calon_karyawan = ranking.id_calon_karyawan
+                                left join tb_calon_karyawan on tb_nilai.id_calon_karyawan = tb_calon_karyawan.id 
+                                group by tb_nilai.id_calon_karyawan
+                                order by ranking.skor_bobot desc"));
+                                $jmlhalaman  = $p->jumlahHalaman($jmldata, $batas);
+                                $linkHalaman = $p->navHalaman($_GET['halaman'], $jmlhalaman);
+                                ?>
                             </tbody>
                         </table>
+                        <div class="row">
+                            <ul class="pagination">
+                                <?php echo "$linkHalaman"; ?>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
