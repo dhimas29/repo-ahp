@@ -155,11 +155,11 @@ if ($modul == 'kriteria' && $ac == 'input') {
     $query_data = mysqli_fetch_array($cek_data);
     if ($cek > 0) {
         $query = mysqli_query($conn, "UPDATE tb_pengalaman_kerja set nama_perusahaan = '$nama_perusahaan',kerja_awal = '$kerja_awal',kerja_akhir='$kerja_akhir',
-        bidang_kerja='$bidang_kerja',pengalaman_kerja='$pengalaman_kerja->days',jabatan='$jabatan',gaji='$gaji' where id_calon_karyawan = '$id_calon_karyawan'");
+        bidang_kerja='$bidang_kerja',jabatan='$jabatan',gaji='$gaji' where id_calon_karyawan = '$id_calon_karyawan'");
         echo "<script>alert('Berhasil Mengubah Data'); window.location.href='../adminweb/index.php?page=pengalaman'; </script>";
     } else {
-        $query = mysqli_query($conn, "INSERT INTO tb_pengalaman_kerja (id_calon_karyawan,nama_perusahaan,kerja_awal,kerja_akhir,pengalaman_kerja,bidang_kerja,jabatan,gaji)
-        values ('$id_calon_karyawan','$nama_perusahaan','$kerja_awal','$kerja_akhir','$pengalaman_kerja->days','$bidang_kerja','$jabatan','$gaji')");
+        $query = mysqli_query($conn, "INSERT INTO tb_pengalaman_kerja (id_calon_karyawan,nama_perusahaan,kerja_awal,kerja_akhir,bidang_kerja,jabatan,gaji)
+        values ('$id_calon_karyawan','$nama_perusahaan','$kerja_awal','$kerja_akhir','$bidang_kerja','$jabatan','$gaji')");
         echo "<script>alert('Berhasil Menambah Data'); window.location.href='../adminweb/index.php?page=pengalaman'; </script>";
     }
 

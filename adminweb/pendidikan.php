@@ -17,8 +17,9 @@
                             <input type="hidden" name="id_calon_karyawan" value="<?= $id_calon_karyawan ?>">
                             <?php
                             $query = mysqli_query($conn, "SELECT * FROM tb_pendidikan_kerja 
-                            left join tb_alternatif on tb_alternatif.id_alternatif = tb_pendidikan_kerja.id_alternatif
-                            where id_calon_karyawan = '$id_calon_karyawan'");
+                            join tb_nilai on tb_nilai.id_calon_karyawan = tb_pendidikan_kerja.id_calon_karyawan
+                            join tb_alternatif on tb_nilai.id_alternatif = tb_alternatif.id_alternatif
+                            where tb_pendidikan_kerja.id_calon_karyawan = '$id_calon_karyawan'");
                             while ($row = mysqli_fetch_array($query)) {
                                 $institusi = $row['institusi'];
                                 $tahun_lulus = $row['tahun_lulus'];
