@@ -63,46 +63,45 @@
         </div>
         <!-- /.row -->
         <!-- Main row -->
-        <div class="row">
-            <div class="col-md-6">
-            </div>
-            <div class="col-md-6">
-                <div class="card card-info">
-                    <div class="card-header">
-                        <h3 class="card-title">Nilai Preferensi</h3>
-                    </div>
-                    <div class="card-body">
-                        <!-- Color Picker -->
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th style="width: 10px">No</th>
-                                    <th>Nilai</th>
-                                    <th>Keterangan</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $no = 1;
-                                $query = mysqli_query($conn, "SELECT * FROM tb_preferensi");
-                                while ($row = mysqli_fetch_array($query)) {
-                                ?>
-                                    <tr>
-                                        <td><?= $no++; ?></td>
-                                        <td><?= $row['jumlah_nilai']; ?></td>
-                                        <td><?= $row['keterangan_nilai']; ?></td>
-                                    </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- /.card-body -->
+        <?php if ($_SESSION['level'] == 'admin') : ?>
+            <div class="row">
+                <div class="col-md-6">
                 </div>
-
-
-                <!-- /.card -->
+                <div class="col-md-6">
+                    <div class="card card-info">
+                        <div class="card-header">
+                            <h3 class="card-title">Nilai Preferensi</h3>
+                        </div>
+                        <div class="card-body">
+                            <!-- Color Picker -->
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px">No</th>
+                                        <th>Nilai</th>
+                                        <th>Keterangan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $no = 1;
+                                    $query = mysqli_query($conn, "SELECT * FROM tb_preferensi");
+                                    while ($row = mysqli_fetch_array($query)) {
+                                    ?>
+                                        <tr>
+                                            <td><?= $no++; ?></td>
+                                            <td><?= $row['jumlah_nilai']; ?></td>
+                                            <td><?= $row['keterangan_nilai']; ?></td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
             </div>
-        </div>
+        <?php endif; ?>
         <!-- /.row (main row) -->
     </div><!-- /.container-fluid -->
 </section>

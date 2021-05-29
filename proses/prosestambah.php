@@ -209,13 +209,13 @@ if ($modul == 'kriteria' && $ac == 'input') {
     }
 } elseif ($modul == 'register' && $ac == 'input') {
     $username = $_POST['username'];
-    $level = "pelamar";
+    $level = "-";
     $email = $_POST['email'];
     $fullname = $_POST['fullname'];
     $password = md5($_POST['password']);
     if ($query = mysqli_query($conn, "INSERT INTO tb_user (level,username,password,fullname,email)
     values ('$level','$username','$password','$fullname','$email')")) {
-        echo "<script>alert('Berhasil Menambah Data'); window.location.href='../index.php'; </script>";
+        echo "<script>window.location.href='prosespos.php?module=konfirmasi&act=kirim&email=$email&fullname=$fullname'; </script>";
     }
 } elseif ($modul == 'postlowongan' && $ac == 'input') {
     $post = $_POST['summernote'];

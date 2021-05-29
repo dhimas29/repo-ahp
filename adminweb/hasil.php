@@ -66,6 +66,8 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                                 $alt1a = mysqli_query($conn, "SELECT *,tb_calon_karyawan.id as id_calon FROM tb_calon_karyawan 
                                 left join tb_pendidikan_kerja on tb_pendidikan_kerja.id_calon_karyawan = tb_calon_karyawan.id 
                                 left join tb_pengalaman_kerja on tb_pengalaman_kerja.id_calon_karyawan = tb_calon_karyawan.id
+                                left join tb_nilai on tb_nilai.id_calon_karyawan = tb_calon_karyawan.id
+                                left join tb_alternatif on tb_alternatif.id_alternatif = tb_nilai.id_alternatif
                                 group by tb_calon_karyawan.id
                                 order by id_kriteria asc limit $posisi,$batas
                                 ");
@@ -90,6 +92,8 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                                     <?php $jmldata = mysqli_num_rows(mysqli_query($conn, "SELECT *,tb_calon_karyawan.id as id_calon FROM tb_calon_karyawan 
                                     left join tb_pendidikan_kerja on tb_pendidikan_kerja.id_calon_karyawan = tb_calon_karyawan.id 
                                     left join tb_pengalaman_kerja on tb_pengalaman_kerja.id_calon_karyawan = tb_calon_karyawan.id
+                                    left join tb_nilai on tb_nilai.id_calon_karyawan = tb_calon_karyawan.id
+                                    left join tb_alternatif on tb_alternatif.id_alternatif = tb_nilai.id_alternatif
                                     group by tb_calon_karyawan.id
                                     order by id_kriteria asc "));
                                     $jmlhalaman  = $p->jumlahHalaman($jmldata, $batas);

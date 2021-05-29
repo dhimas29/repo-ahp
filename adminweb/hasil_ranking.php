@@ -19,7 +19,24 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
             <div class="card">
                 <div class="card-header">
                     <!-- <h3 class="card-title">Bobot</h3> -->
-
+                    <div class="card-tools float-left">
+                        <ul class="pagination pagination-sm">
+                            <li class="page-item active">
+                                <form action="../proses/prosespos.php?module=pos&act=kirim" method="POST">
+                                    <?php
+                                    $query = mysqli_query($conn, "SELECT * FROM ranking 
+                                    join tb_nilai on ranking.id_calon_karyawan = tb_nilai.id_calon_karyawan 
+                                    group by ranking.id_calon_karyawan
+                                    order by periode desc");
+                                    while ($row = mysqli_fetch_array($query)) : ?>
+                                        <input type="hidden" value="<?= $row['id_calon_karyawan'] ?>" name="pos[<?php echo $row['id_calon_karyawan'] ?>]">
+                                    <?php endwhile; ?>
+                                    <button type="submit" class="page-link">Post</button>
+                                    <!-- <a href="" type="submit" class="page-link">Post</a> -->
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
                     <div class="card-tools">
                         <ul class="pagination pagination-sm float-right">
                             <li class="page-item"><a class="page-link" href="index.php?page=hasil">Bobot</a></li>
@@ -52,7 +69,7 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                                 left join ranking on tb_nilai.id_calon_karyawan = ranking.id_calon_karyawan
                                 left join tb_calon_karyawan on tb_nilai.id_calon_karyawan = tb_calon_karyawan.id 
                                 group by tb_nilai.id_calon_karyawan
-                                order by ranking.skor_bobot desc");
+                                order by ranking.skor_bobot,periode desc");
                                 while ($row1 = mysqli_fetch_array($alt1a)) : ?>
                                     <?php
                                     if ($no <= 1) {
@@ -75,7 +92,7 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                                 left join ranking on tb_nilai.id_calon_karyawan = ranking.id_calon_karyawan
                                 left join tb_calon_karyawan on tb_nilai.id_calon_karyawan = tb_calon_karyawan.id 
                                 group by tb_nilai.id_calon_karyawan
-                                order by ranking.skor_bobot desc"));
+                                order by ranking.skor_bobot,periode desc"));
                                 $jmlhalaman  = $p->jumlahHalaman($jmldata, $batas);
                                 $linkHalaman = $p->navHalaman($_GET['halaman'], $jmlhalaman);
                                 ?>

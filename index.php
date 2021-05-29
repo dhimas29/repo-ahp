@@ -170,6 +170,54 @@
   <!-- Modal End Login -->
 
   <!-- Modal Register -->
+  <?php
+  // if ($_GET['konfirmasi'] == '') {
+  //   $konfirmasi = $_GET['konfirmasi'];
+  // } else {
+  //   $konfirmasi = '';
+  // }
+  $konfirmasi = $_SERVER['REQUEST_URI'];
+  // var_dump($konfirmasi);
+  if ($konfirmasi == '/skripsi/index.php?konfirmasi=berhasil') : ?>
+    <div class="modal show" id="register">
+      <form name="login" action="" method="POST" onSubmit="return validasi(this)">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" bgcolor="black">
+              <!-- <img src="images/logo-kapa.png" width="30%" alt=""> -->
+              <!-- <h1><span>Multidaya</span>Medika</h1> -->
+              <div class="modal-title">
+                <center>
+                  <h4>Konfirmasi Daftar Akun </h4>
+                </center>
+              </div>
+            </div>
+            <div class="modal-body">
+              <div class="form-horizontal">
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <div class="input-group">
+                      <p>Silahkan cek email anda untuk konfirmasi akun</p><a target="_blank" href="https://mail.google.com/mail/u/0/#inbox">https://mail.google.com/mail/u/0/#inbox</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <!-- <button class="btn btn-danger" type="reset" data-dismiss="modal">Batal</button> -->
+              <center>
+                <a href="index.php">Close</a>
+                <!-- <button class="btn btn-success" data-dismiss="modal"> Close</button> -->
+              </center>
+              <!-- <br>
+            <a href="#login" data-toggle="modal" data-dismiss="modal"> Sudah Memiliki Akun</button> -->
+              <!-- <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-user"></span> Daftar</button> -->
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  <?php endif; ?>
   <div class="modal fade" id="register">
     <form name="login" action="proses/prosestambah.php?module=register&act=input" method="POST" onSubmit="return validasi(this)">
       <div class="modal-dialog">

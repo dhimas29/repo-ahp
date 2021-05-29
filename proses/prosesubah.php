@@ -35,4 +35,7 @@ if ($modul == 'kriteria' && $ac == 'ubah') {
             echo "<script>alert('Berhasil Mengubah Data'); window.location.href='../adminweb/index.php?page=user'; </script>";
         }
     }
+} elseif ($modul == 'konfirmasi' && $ac == 'kirim') {
+    $query = mysqli_query($conn, "Update tb_user set level = 'pelamar' where email='$_GET[email]'");
+    echo "<script>alert('Berhasil Aktivasi Akun'); window.location.href='../index.php'</script>";
 }
