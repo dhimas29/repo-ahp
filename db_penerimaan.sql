@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2021 at 01:48 AM
+-- Generation Time: May 29, 2021 at 04:32 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -40,15 +40,101 @@ CREATE TABLE `analisa_alternatif` (
 --
 
 INSERT INTO `analisa_alternatif` (`alternatif_pertama`, `nilai_analisa_alternatif`, `hasil_analisa_alternatif`, `alternatif_kedua`, `id_kriteria`) VALUES
-('A003', 1, 0.33333333333333, 'A003', 'C1'),
-('A003', 1, 0.33333333333333, 'A004', 'C1'),
-('A003', 1, 0.33333333333333, 'A005', 'C1'),
-('A004', 1, 0.33333333333333, 'A003', 'C1'),
-('A004', 1, 0.33333333333333, 'A004', 'C1'),
-('A004', 1, 0.33333333333333, 'A005', 'C1'),
-('A005', 1, 0.33333333333333, 'A003', 'C1'),
-('A005', 1, 0.33333333333333, 'A004', 'C1'),
-('A005', 1, 0.33333333333333, 'A005', 'C1');
+('A001', 1, 0.9, 'A001', 'C1'),
+('A001', 9, 0.9, 'A002', 'C1'),
+('A002', 0.11111111111111, 0.099999999999999, 'A001', 'C1'),
+('A002', 1, 0.1, 'A002', 'C1'),
+('A003', 1, 0.75, 'A003', 'C2'),
+('A003', 9, 0.8804347826087, 'A004', 'C2'),
+('A003', 9, 0.47093023255814, 'A005', 'C2'),
+('A003', 9, 0.32142857142857, 'A006', 'C2'),
+('A004', 0.11111111111111, 0.083333333333333, 'A003', 'C2'),
+('A004', 1, 0.097826086956522, 'A004', 'C2'),
+('A004', 9, 0.47093023255814, 'A005', 'C2'),
+('A004', 9, 0.32142857142857, 'A006', 'C2'),
+('A005', 0.11111111111111, 0.083333333333333, 'A003', 'C2'),
+('A005', 0.11111111111111, 0.010869565217391, 'A004', 'C2'),
+('A005', 1, 0.052325581395349, 'A005', 'C2'),
+('A005', 9, 0.32142857142857, 'A006', 'C2'),
+('A006', 0.11111111111111, 0.083333333333333, 'A003', 'C2'),
+('A006', 0.11111111111111, 0.010869565217391, 'A004', 'C2'),
+('A006', 0.11111111111111, 0.005813953488372, 'A005', 'C2'),
+('A006', 1, 0.035714285714286, 'A006', 'C2'),
+('A007', 1, 0.69230769230769, 'A007', 'C3'),
+('A007', 9, 0.87096774193548, 'A008', 'C3'),
+('A007', 9, 0.46820809248555, 'A009', 'C3'),
+('A007', 9, 0.3201581027668, 'A010', 'C3'),
+('A007', 9, 0.24324324324324, 'A011', 'C3'),
+('A008', 0.11111111111111, 0.076923076923076, 'A007', 'C3'),
+('A008', 1, 0.096774193548387, 'A008', 'C3'),
+('A008', 9, 0.46820809248555, 'A009', 'C3'),
+('A008', 9, 0.3201581027668, 'A010', 'C3'),
+('A008', 9, 0.24324324324324, 'A011', 'C3'),
+('A009', 0.11111111111111, 0.076923076923076, 'A007', 'C3'),
+('A009', 0.11111111111111, 0.010752688172043, 'A008', 'C3'),
+('A009', 1, 0.052023121387283, 'A009', 'C3'),
+('A009', 9, 0.3201581027668, 'A010', 'C3'),
+('A009', 9, 0.24324324324324, 'A011', 'C3'),
+('A010', 0.11111111111111, 0.076923076923076, 'A007', 'C3'),
+('A010', 0.11111111111111, 0.010752688172043, 'A008', 'C3'),
+('A010', 0.11111111111111, 0.0057803468208092, 'A009', 'C3'),
+('A010', 1, 0.035573122529644, 'A010', 'C3'),
+('A010', 9, 0.24324324324324, 'A011', 'C3'),
+('A011', 0.11111111111111, 0.076923076923076, 'A007', 'C3'),
+('A011', 0.11111111111111, 0.010752688172043, 'A008', 'C3'),
+('A011', 0.11111111111111, 0.0057803468208092, 'A009', 'C3'),
+('A011', 0.11111111111111, 0.0039525691699604, 'A010', 'C3'),
+('A011', 1, 0.027027027027027, 'A011', 'C3'),
+('A012', 1, 0.69230769230769, 'A012', 'C4'),
+('A012', 9, 0.87096774193548, 'A013', 'C4'),
+('A012', 9, 0.46820809248555, 'A014', 'C4'),
+('A012', 9, 0.3201581027668, 'A015', 'C4'),
+('A012', 9, 0.24324324324324, 'A016', 'C4'),
+('A013', 0.11111111111111, 0.076923076923076, 'A012', 'C4'),
+('A013', 1, 0.096774193548387, 'A013', 'C4'),
+('A013', 9, 0.46820809248555, 'A014', 'C4'),
+('A013', 9, 0.3201581027668, 'A015', 'C4'),
+('A013', 9, 0.24324324324324, 'A016', 'C4'),
+('A014', 0.11111111111111, 0.076923076923076, 'A012', 'C4'),
+('A014', 0.11111111111111, 0.010752688172043, 'A013', 'C4'),
+('A014', 1, 0.052023121387283, 'A014', 'C4'),
+('A014', 9, 0.3201581027668, 'A015', 'C4'),
+('A014', 9, 0.24324324324324, 'A016', 'C4'),
+('A015', 0.11111111111111, 0.076923076923076, 'A012', 'C4'),
+('A015', 0.11111111111111, 0.010752688172043, 'A013', 'C4'),
+('A015', 0.11111111111111, 0.0057803468208092, 'A014', 'C4'),
+('A015', 1, 0.035573122529644, 'A015', 'C4'),
+('A015', 9, 0.24324324324324, 'A016', 'C4'),
+('A016', 0.11111111111111, 0.076923076923076, 'A012', 'C4'),
+('A016', 0.11111111111111, 0.010752688172043, 'A013', 'C4'),
+('A016', 0.11111111111111, 0.0057803468208092, 'A014', 'C4'),
+('A016', 0.11111111111111, 0.0039525691699604, 'A015', 'C4'),
+('A016', 1, 0.027027027027027, 'A016', 'C4'),
+('A017', 1, 0.69230769230769, 'A017', 'C5'),
+('A017', 9, 0.87096774193548, 'A018', 'C5'),
+('A017', 9, 0.46820809248555, 'A019', 'C5'),
+('A017', 9, 0.3201581027668, 'A020', 'C5'),
+('A017', 9, 0.24324324324324, 'A021', 'C5'),
+('A018', 0.11111111111111, 0.076923076923076, 'A017', 'C5'),
+('A018', 1, 0.096774193548387, 'A018', 'C5'),
+('A018', 9, 0.46820809248555, 'A019', 'C5'),
+('A018', 9, 0.3201581027668, 'A020', 'C5'),
+('A018', 9, 0.24324324324324, 'A021', 'C5'),
+('A019', 0.11111111111111, 0.076923076923076, 'A017', 'C5'),
+('A019', 0.11111111111111, 0.010752688172043, 'A018', 'C5'),
+('A019', 1, 0.052023121387283, 'A019', 'C5'),
+('A019', 9, 0.3201581027668, 'A020', 'C5'),
+('A019', 9, 0.24324324324324, 'A021', 'C5'),
+('A020', 0.11111111111111, 0.076923076923076, 'A017', 'C5'),
+('A020', 0.11111111111111, 0.010752688172043, 'A018', 'C5'),
+('A020', 0.11111111111111, 0.0057803468208092, 'A019', 'C5'),
+('A020', 1, 0.035573122529644, 'A020', 'C5'),
+('A020', 9, 0.24324324324324, 'A021', 'C5'),
+('A021', 0.11111111111111, 0.076923076923076, 'A017', 'C5'),
+('A021', 0.11111111111111, 0.010752688172043, 'A018', 'C5'),
+('A021', 0.11111111111111, 0.0057803468208092, 'A019', 'C5'),
+('A021', 0.11111111111111, 0.0039525691699604, 'A020', 'C5'),
+('A021', 1, 0.027027027027027, 'A021', 'C5');
 
 -- --------------------------------------------------------
 
@@ -68,10 +154,31 @@ CREATE TABLE `analisa_kriteria` (
 --
 
 INSERT INTO `analisa_kriteria` (`kriteria_pertama`, `nilai_analisa_kriteria`, `hasil_analisa_kriteria`, `kriteria_kedua`) VALUES
-('C1', 1, 0.5, 'C1'),
-('C1', 1, 0.5, 'C2'),
-('C2', 1, 0.5, 'C1'),
-('C2', 1, 0.5, 'C2');
+('C1', 1, 0.69230769230769, 'C1'),
+('C1', 9, 0.87096774193548, 'C2'),
+('C1', 9, 0.46820809248555, 'C3'),
+('C1', 9, 0.3201581027668, 'C4'),
+('C1', 9, 0.24324324324324, 'C5'),
+('C2', 0.11111111111111, 0.076923076923076, 'C1'),
+('C2', 1, 0.096774193548387, 'C2'),
+('C2', 9, 0.46820809248555, 'C3'),
+('C2', 9, 0.3201581027668, 'C4'),
+('C2', 9, 0.24324324324324, 'C5'),
+('C3', 0.11111111111111, 0.076923076923076, 'C1'),
+('C3', 0.11111111111111, 0.010752688172043, 'C2'),
+('C3', 1, 0.052023121387283, 'C3'),
+('C3', 9, 0.3201581027668, 'C4'),
+('C3', 9, 0.24324324324324, 'C5'),
+('C4', 0.11111111111111, 0.076923076923076, 'C1'),
+('C4', 0.11111111111111, 0.010752688172043, 'C2'),
+('C4', 0.11111111111111, 0.0057803468208092, 'C3'),
+('C4', 1, 0.035573122529644, 'C4'),
+('C4', 9, 0.24324324324324, 'C5'),
+('C5', 0.11111111111111, 0.076923076923076, 'C1'),
+('C5', 0.11111111111111, 0.010752688172043, 'C2'),
+('C5', 0.11111111111111, 0.0057803468208092, 'C3'),
+('C5', 0.11111111111111, 0.0039525691699604, 'C4'),
+('C5', 1, 0.027027027027027, 'C5');
 
 -- --------------------------------------------------------
 
@@ -92,9 +199,27 @@ CREATE TABLE `jum_alt_kri` (
 --
 
 INSERT INTO `jum_alt_kri` (`id_alternatif`, `id_kriteria`, `jumlah_alt_kri`, `skor_alt_kri`, `hasil_alt_kri`) VALUES
-('A003', 'C1', 3, 0.33333333333333, 0),
-('A004', 'C1', 3, 0.33333333333333, 0),
-('A005', 'C1', 3, 0.33333333333333, 0);
+('A001', 'C1', 1.11111111111111, 0.9, 0.46707927709298),
+('A002', 'C1', 10, 0.0999999999999995, 0),
+('A003', 'C2', 1.3333333333333302, 0.6056983966488525, 0.14601046821829),
+('A004', 'C2', 10.222222222222221, 0.24337955606914125, 0.058669402351112),
+('A005', 'C2', 19.11111111111111, 0.11698926284366075, 0),
+('A006', 'C2', 28, 0.0339327844383455, 0),
+('A007', 'C3', 1.4444444444444402, 0.5189769745477519, 0.076759353341986),
+('A008', 'C3', 10.333333333333332, 0.2410613417934106, 0.033898057091977),
+('A009', 'C3', 19.22222222222222, 0.14062004649848842, 0),
+('A010', 'C3', 28.11111111111111, 0.07445449553776244, 0),
+('A011', 'C3', 37, 0.02488714162258312, 0),
+('A012', 'C4', 1.4444444444444402, 0.5189769745477519, 0.042247601316923),
+('A013', 'C4', 10.333333333333332, 0.2410613417934106, 0),
+('A014', 'C4', 19.22222222222222, 0.14062004649848842, 0.010469794624542),
+('A015', 'C4', 28.11111111111111, 0.07445449553776244, 0),
+('A016', 'C4', 37, 0.02488714162258312, 0),
+('A017', 'C5', 1.4444444444444402, 0.5189769745477519, 0.016510261867022),
+('A018', 'C5', 10.333333333333332, 0.2410613417934106, 0),
+('A019', 'C5', 19.22222222222222, 0.14062004649848842, 0),
+('A020', 'C5', 28.11111111111111, 0.07445449553776244, 0),
+('A021', 'C5', 37, 0.02488714162258312, 0.00061936981814251);
 
 -- --------------------------------------------------------
 
@@ -104,16 +229,18 @@ INSERT INTO `jum_alt_kri` (`id_alternatif`, `id_kriteria`, `jumlah_alt_kri`, `sk
 
 CREATE TABLE `postlowongan` (
   `id` int(11) NOT NULL,
-  `post` longtext NOT NULL
+  `judul` varchar(255) NOT NULL,
+  `post` longtext NOT NULL,
+  `tanggal` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `postlowongan`
 --
 
-INSERT INTO `postlowongan` (`id`, `post`) VALUES
-(2, '<p>1. saya</p><p>2. saya</p>'),
-(3, '<p>sayaaa</p>');
+INSERT INTO `postlowongan` (`id`, `judul`, `post`, `tanggal`) VALUES
+(5, 'Lowongan Admin', '<p>Dibutuhkan Segera Admin</p>', '27-05-2021, 04:36 WIB'),
+(6, 'Lowongan', '<p>Dibutuhkan Segera Staff It</p><p>Requirement :</p><p>xxx</p><p>xxx</p><p>xx</p><p>x</p>', '27-05-2021, 05:50 WIB');
 
 -- --------------------------------------------------------
 
@@ -122,10 +249,17 @@ INSERT INTO `postlowongan` (`id`, `post`) VALUES
 --
 
 CREATE TABLE `ranking` (
-  `nik_calon_karyawan` varchar(15) NOT NULL,
-  `bobot_kriteria` double NOT NULL,
+  `id_calon_karyawan` int(11) NOT NULL,
+  `skor_bobot` double NOT NULL,
   `label` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ranking`
+--
+
+INSERT INTO `ranking` (`id_calon_karyawan`, `skor_bobot`, `label`) VALUES
+(13, 17.791480017635998, 'Lulus');
 
 -- --------------------------------------------------------
 
@@ -144,9 +278,27 @@ CREATE TABLE `tb_alternatif` (
 --
 
 INSERT INTO `tb_alternatif` (`id_alternatif`, `id_kriteria`, `nama_alternatif`) VALUES
-('A003', 'C1', 'Layak'),
-('A004', 'C1', 'Kita'),
-('A005', 'C1', 'Bagus');
+('A001', 'C1', 'Sudah Pernah Bekerja'),
+('A002', 'C1', 'Belum Bekerja'),
+('A003', 'C2', 'S1'),
+('A004', 'C2', 'D3'),
+('A005', 'C2', 'SMK'),
+('A006', 'C2', 'SMP'),
+('A007', 'C3', 'A'),
+('A008', 'C3', 'B'),
+('A009', 'C3', 'C'),
+('A010', 'C3', 'D'),
+('A011', 'C3', 'E'),
+('A012', 'C4', 'A'),
+('A013', 'C4', 'B'),
+('A014', 'C4', 'C'),
+('A015', 'C4', 'D'),
+('A016', 'C4', 'E'),
+('A017', 'C5', 'A'),
+('A018', 'C5', 'B'),
+('A019', 'C5', 'C'),
+('A020', 'C5', 'D'),
+('A021', 'C5', 'E');
 
 -- --------------------------------------------------------
 
@@ -187,7 +339,7 @@ CREATE TABLE `tb_kriteria` (
   `id_kriteria` varchar(3) NOT NULL,
   `nama_kriteria` varchar(30) NOT NULL,
   `bobot_kriteria` double NOT NULL DEFAULT 0,
-  `jumlah_kriteria` int(11) NOT NULL DEFAULT 0
+  `jumlah_kriteria` double NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -195,10 +347,11 @@ CREATE TABLE `tb_kriteria` (
 --
 
 INSERT INTO `tb_kriteria` (`id_kriteria`, `nama_kriteria`, `bobot_kriteria`, `jumlah_kriteria`) VALUES
-('C1', 'Wawancara', 0.5, 2),
-('C2', 'Ujian Tertulis', 0.5, 2),
-('C3', 'Ujian Praktek', 0, 0),
-('C4', 'IPK', 0, 0);
+('C1', 'Pengalaman Kerja', 0.5189769745477519, 1.4444444444444402),
+('C2', 'Pendidikan Terakhir', 0.2410613417934106, 10.333333333333332),
+('C3', 'Tes Tertulis', 0.14062004649848842, 19.22222222222222),
+('C4', 'Tes Psikotes', 0.07445449553776244, 28.11111111111111),
+('C5', 'Wawancara', 0.02488714162258312, 37);
 
 -- --------------------------------------------------------
 
@@ -207,16 +360,87 @@ INSERT INTO `tb_kriteria` (`id_kriteria`, `nama_kriteria`, `bobot_kriteria`, `ju
 --
 
 CREATE TABLE `tb_nilai` (
-  `id_nilai` int(11) NOT NULL,
-  `jumlah_nilai` double NOT NULL,
-  `keterangan_nilai` varchar(60) NOT NULL
+  `id` int(11) NOT NULL,
+  `id_calon_karyawan` int(11) NOT NULL,
+  `id_alternatif` varchar(4) NOT NULL,
+  `nilai` int(11) NOT NULL,
+  `periode` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_nilai`
 --
 
-INSERT INTO `tb_nilai` (`id_nilai`, `jumlah_nilai`, `keterangan_nilai`) VALUES
+INSERT INTO `tb_nilai` (`id`, `id_calon_karyawan`, `id_alternatif`, `nilai`, `periode`) VALUES
+(75, 13, 'A008', 80, '2021'),
+(76, 13, 'A014', 70, '2021'),
+(77, 13, 'A021', 60, '2021'),
+(80, 13, 'A001', 183, '2021'),
+(81, 13, 'A003', 0, '2021');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_pendidikan_kerja`
+--
+
+CREATE TABLE `tb_pendidikan_kerja` (
+  `id` int(11) NOT NULL,
+  `id_calon_karyawan` int(11) NOT NULL,
+  `institusi` varchar(100) NOT NULL,
+  `tahun_lulus` varchar(4) NOT NULL,
+  `program_studi` varchar(100) NOT NULL,
+  `nilai_akhir` varchar(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_pendidikan_kerja`
+--
+
+INSERT INTO `tb_pendidikan_kerja` (`id`, `id_calon_karyawan`, `institusi`, `tahun_lulus`, `program_studi`, `nilai_akhir`) VALUES
+(1, 13, 'Universitas Darma Persada', '2021', 'Sistem Informasi', '3.45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_pengalaman_kerja`
+--
+
+CREATE TABLE `tb_pengalaman_kerja` (
+  `id` int(11) NOT NULL,
+  `id_calon_karyawan` int(11) NOT NULL,
+  `nama_perusahaan` varchar(100) NOT NULL,
+  `kerja_awal` varchar(10) NOT NULL,
+  `kerja_akhir` varchar(10) NOT NULL,
+  `bidang_kerja` varchar(100) NOT NULL,
+  `jabatan` varchar(100) NOT NULL,
+  `gaji` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_pengalaman_kerja`
+--
+
+INSERT INTO `tb_pengalaman_kerja` (`id`, `id_calon_karyawan`, `nama_perusahaan`, `kerja_awal`, `kerja_akhir`, `bidang_kerja`, `jabatan`, `gaji`) VALUES
+(2, 13, 'Saya', '2020-11-25', '2021-05-27', 'Jeruk', 'CEO/GM/Direktur/Manajer Senior', '20000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_preferensi`
+--
+
+CREATE TABLE `tb_preferensi` (
+  `id_nilai` int(11) NOT NULL,
+  `jumlah_nilai` double NOT NULL,
+  `keterangan_nilai` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_preferensi`
+--
+
+INSERT INTO `tb_preferensi` (`id_nilai`, `jumlah_nilai`, `keterangan_nilai`) VALUES
 (1, 1, 'Sama penting dengan'),
 (2, 3, 'Sedikit lebih penting dari'),
 (3, 5, 'Lebih penting dari'),
@@ -269,7 +493,7 @@ INSERT INTO `tb_user` (`id`, `level`, `username`, `password`, `fullname`, `email
 (2, 'karyawan', 'karyawan', '9e014682c94e0f2cc834bf7348bda428', 'karyawan', 'karyawan@gmai.com'),
 (13, 'admin', 'shrine', '21232f297a57a5a743894a0e4a801fc3', 'shrine', 'shrine@gmail.com'),
 (16, 'pelamar', 'yuru', '63fc408103356ccbf3eeda2b85f16dee', 'yuru', 'yuru@gmail.com'),
-(17, 'manager', 'manager', '8b342e1ffc39b0943351612229f7e8e3', 'manager', 'manager@gmail.com');
+(17, 'manager', 'manager', '1d0258c2440a8d19e716292b231e3190', 'manager', 'manager@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -307,7 +531,7 @@ ALTER TABLE `postlowongan`
 -- Indexes for table `ranking`
 --
 ALTER TABLE `ranking`
-  ADD PRIMARY KEY (`nik_calon_karyawan`);
+  ADD PRIMARY KEY (`id_calon_karyawan`);
 
 --
 -- Indexes for table `tb_alternatif`
@@ -331,6 +555,24 @@ ALTER TABLE `tb_kriteria`
 -- Indexes for table `tb_nilai`
 --
 ALTER TABLE `tb_nilai`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_pendidikan_kerja`
+--
+ALTER TABLE `tb_pendidikan_kerja`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_pengalaman_kerja`
+--
+ALTER TABLE `tb_pengalaman_kerja`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_preferensi`
+--
+ALTER TABLE `tb_preferensi`
   ADD PRIMARY KEY (`id_nilai`);
 
 --
@@ -353,7 +595,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `postlowongan`
 --
 ALTER TABLE `postlowongan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tb_calon_karyawan`
@@ -365,6 +607,24 @@ ALTER TABLE `tb_calon_karyawan`
 -- AUTO_INCREMENT for table `tb_nilai`
 --
 ALTER TABLE `tb_nilai`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+
+--
+-- AUTO_INCREMENT for table `tb_pendidikan_kerja`
+--
+ALTER TABLE `tb_pendidikan_kerja`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tb_pengalaman_kerja`
+--
+ALTER TABLE `tb_pengalaman_kerja`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tb_preferensi`
+--
+ALTER TABLE `tb_preferensi`
   MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
@@ -377,7 +637,7 @@ ALTER TABLE `tb_register`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
