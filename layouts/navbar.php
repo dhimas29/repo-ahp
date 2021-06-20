@@ -22,13 +22,13 @@
                 }
                 ?>
                 <img src="<?php echo "../assets/dist/img_profile/" . $photo ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8" width="30">
-                <span class="brand-text font-weight-light"><?= ucwords($_SESSION['username']); ?></span>
+                <span class="brand-text font-weight-light"><?= ucwords($_SESSION['fullname']); ?></span>
             </a>
             <!-- </a> -->
             <div class="dropdown-menu">
-                <a href="#" class="dropdown-item">
+                <!-- <a href="#" class="dropdown-item">
                     Pengaturan Akun
-                </a>
+                </a> -->
                 <div class="dropdown-divider"></div>
                 <a href="../logout.php" class="dropdown-item">
                     Logout

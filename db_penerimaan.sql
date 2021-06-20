@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2021 at 04:32 AM
+-- Generation Time: Jun 20, 2021 at 04:36 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -211,7 +211,7 @@ INSERT INTO `jum_alt_kri` (`id_alternatif`, `id_kriteria`, `jumlah_alt_kri`, `sk
 ('A010', 'C3', 28.11111111111111, 0.07445449553776244, 0),
 ('A011', 'C3', 37, 0.02488714162258312, 0),
 ('A012', 'C4', 1.4444444444444402, 0.5189769745477519, 0.042247601316923),
-('A013', 'C4', 10.333333333333332, 0.2410613417934106, 0),
+('A013', 'C4', 10.333333333333332, 0.2410613417934106, 0.017948100596885),
 ('A014', 'C4', 19.22222222222222, 0.14062004649848842, 0.010469794624542),
 ('A015', 'C4', 28.11111111111111, 0.07445449553776244, 0),
 ('A016', 'C4', 37, 0.02488714162258312, 0),
@@ -259,7 +259,8 @@ CREATE TABLE `ranking` (
 --
 
 INSERT INTO `ranking` (`id_calon_karyawan`, `skor_bobot`, `label`) VALUES
-(13, 17.791480017635998, 'Lulus');
+(13, 17.791480017635998, 'Lulus'),
+(15, 2.8921197800486143, 'Lulus');
 
 -- --------------------------------------------------------
 
@@ -327,7 +328,9 @@ CREATE TABLE `tb_calon_karyawan` (
 --
 
 INSERT INTO `tb_calon_karyawan` (`id`, `nik`, `nama_lengkap`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `status`, `no_telp`, `email`, `photo`, `alamat`, `created_at`) VALUES
-(13, '123123', 'yuru', 'Tangerang', '04/07/2021', 'laki', 'budha', 'Belum Menikah', '087816335524', 'yuru@gmail.com', '123123_teletubbies.jpg', 'asdasd', '2021-04-24 05:20:57');
+(13, '123123', 'yuru', 'Tangerang', '04/07/2021', 'laki', 'budha', 'Belum Menikah', '087816335524', 'yuru@gmail.com', '123123_Screenshot 2021-06-08 160045.png', 'asdasd', '2021-04-24 05:20:57'),
+(14, '21312', 'Dhimas Alvian Rifita', 'Tangerang', '05/30/2021', 'laki', 'kristen', 'Belum Menikah', '123123', 'dhimas.alvianrifita@gmail.com', '21312_Screenshot 2021-06-08 160045.png', 'asdasd', '2021-06-12 23:34:37'),
+(15, '312', 'karyawan', 'Tangerang', '05/30/2021', 'laki', 'kristen', 'Belum Menikah', '123123', 'karyawan@gmai.com', '312_Capture.PNG', 'asd', '2021-06-20 20:35:18');
 
 -- --------------------------------------------------------
 
@@ -376,7 +379,12 @@ INSERT INTO `tb_nilai` (`id`, `id_calon_karyawan`, `id_alternatif`, `nilai`, `pe
 (76, 13, 'A014', 70, '2021'),
 (77, 13, 'A021', 60, '2021'),
 (80, 13, 'A001', 183, '2021'),
-(81, 13, 'A003', 0, '2021');
+(81, 13, 'A003', 0, '2021'),
+(92, 15, 'A001', 22, '2021'),
+(94, 15, 'A003', 0, '2021'),
+(95, 15, 'A008', 80, '2021'),
+(96, 15, 'A013', 80, '2021'),
+(97, 15, 'A021', 60, '2021');
 
 -- --------------------------------------------------------
 
@@ -389,6 +397,7 @@ CREATE TABLE `tb_pendidikan_kerja` (
   `id_calon_karyawan` int(11) NOT NULL,
   `institusi` varchar(100) NOT NULL,
   `tahun_lulus` varchar(4) NOT NULL,
+  `kualifikasi` varchar(20) NOT NULL,
   `program_studi` varchar(100) NOT NULL,
   `nilai_akhir` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -397,8 +406,8 @@ CREATE TABLE `tb_pendidikan_kerja` (
 -- Dumping data for table `tb_pendidikan_kerja`
 --
 
-INSERT INTO `tb_pendidikan_kerja` (`id`, `id_calon_karyawan`, `institusi`, `tahun_lulus`, `program_studi`, `nilai_akhir`) VALUES
-(1, 13, 'Universitas Darma Persada', '2021', 'Sistem Informasi', '3.45');
+INSERT INTO `tb_pendidikan_kerja` (`id`, `id_calon_karyawan`, `institusi`, `tahun_lulus`, `kualifikasi`, `program_studi`, `nilai_akhir`) VALUES
+(2, 15, 'Universitas Darma Persada', '2020', 'A003', 'Sistem Informasi', '3.45');
 
 -- --------------------------------------------------------
 
@@ -422,7 +431,8 @@ CREATE TABLE `tb_pengalaman_kerja` (
 --
 
 INSERT INTO `tb_pengalaman_kerja` (`id`, `id_calon_karyawan`, `nama_perusahaan`, `kerja_awal`, `kerja_akhir`, `bidang_kerja`, `jabatan`, `gaji`) VALUES
-(2, 13, 'Saya', '2020-11-25', '2021-05-27', 'Jeruk', 'CEO/GM/Direktur/Manajer Senior', '20000');
+(2, 13, 'Saya', '2020-11-25', '2021-05-27', 'Jeruk', 'CEO/GM/Direktur/Manajer Senior', '20000'),
+(5, 15, 'Saya', '2021-05-30', '2021-06-21', 'Jeruk', 'CEO/GM/Direktur/Manajer Senior', '20000');
 
 -- --------------------------------------------------------
 
@@ -492,8 +502,10 @@ INSERT INTO `tb_user` (`id`, `level`, `username`, `password`, `fullname`, `email
 (1, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'admin@gmail.com'),
 (2, 'karyawan', 'karyawan', '9e014682c94e0f2cc834bf7348bda428', 'karyawan', 'karyawan@gmai.com'),
 (13, 'admin', 'shrine', '21232f297a57a5a743894a0e4a801fc3', 'shrine', 'shrine@gmail.com'),
-(16, 'pelamar', 'yuru', '63fc408103356ccbf3eeda2b85f16dee', 'yuru', 'yuru@gmail.com'),
-(17, 'manager', 'manager', '1d0258c2440a8d19e716292b231e3190', 'manager', 'manager@gmail.com');
+(16, 'karyawan', 'yuru', '63fc408103356ccbf3eeda2b85f16dee', 'yuru', 'yuru@gmail.com'),
+(17, 'pimpinan', 'pimpinan', '90973652b88fe07d05a4304f0a945de8', 'Kepala Perusahaan', 'pimpinan@gmail.com'),
+(28, 'pelamar', 'adha', '481781ce2f77b4eecab6b17d7413e635', 'adha', 'dhimas.alvianrifita@gmail.com'),
+(29, 'pelamar', 'evan', '98cc7d37dc7b90c14a59ef0c5caa8995', 'evan', 'evan.rifita@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -543,7 +555,8 @@ ALTER TABLE `tb_alternatif`
 -- Indexes for table `tb_calon_karyawan`
 --
 ALTER TABLE `tb_calon_karyawan`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `tb_kriteria`
@@ -585,7 +598,8 @@ ALTER TABLE `tb_register`
 -- Indexes for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -601,25 +615,25 @@ ALTER TABLE `postlowongan`
 -- AUTO_INCREMENT for table `tb_calon_karyawan`
 --
 ALTER TABLE `tb_calon_karyawan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tb_nilai`
 --
 ALTER TABLE `tb_nilai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `tb_pendidikan_kerja`
 --
 ALTER TABLE `tb_pendidikan_kerja`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_pengalaman_kerja`
 --
 ALTER TABLE `tb_pengalaman_kerja`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_preferensi`
@@ -637,7 +651,7 @@ ALTER TABLE `tb_register`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

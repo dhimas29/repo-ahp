@@ -31,24 +31,31 @@ if ($modul == 'kriteria' && $ac == 'input') {
     $no_telp = $_POST['no_telp'];
     $email = $_POST['email'];
     $alamat = $_POST['alamat'];
-
     $ekstensi_diperbolehkan    = array('png', 'jpg', 'jpeg');
     $nama_photo = $_FILES['photo']['name'];
     $exp_photo = explode('.', $nama_photo);
     $exp_path = pathinfo($nama_photo, PATHINFO_EXTENSION);
     $pth_nama = $nik . "_" . $exp_photo[0] . "." . $exp_path;
-
     $x_photo = explode('.', $nama_photo);
     $ekstensi_photo = strtolower(end($x_photo));
     $ukuran_photo    = $_FILES['photo']['size'];
     $file_tmp_photo = $_FILES['photo']['tmp_name'];
-
+    $qcek = mysqli_query($conn, "SELECT * FROM tb_calon_karyawan where nik ='$nik' || email='$email'");
+    $cek = mysqli_num_rows($qcek);
+    if ($nama_photo == '') {
+        if ($cek > 0) {
+            $query = mysqli_query($conn, "UPDATE tb_calon_karyawan 
+            set nik ='$nik',nama_lengkap ='$nama_lengkap',tempat_lahir ='$tempat_lahir',
+            tanggal_lahir='$tanggal_lahir',jenis_kelamin ='$jenis_kelamin',agama='$agama',no_telp='$no_telp',
+            status='$status',alamat='$alamat' where email ='$email'
+            ");
+            echo "<script>alert('Berhasil Mengubah Data'); window.location.href='../adminweb/index.php?page=profile'; </script>";
+        }
+    }
     if (in_array($ekstensi_photo, $ekstensi_diperbolehkan) === true) {
         if (($ukuran_photo < 1044070)) {
             $up_photo = move_uploaded_file($file_tmp_photo, '../assets/dist/img_profile/' . $pth_nama);
             if ($up_photo) {
-                $qcek = mysqli_query($conn, "SELECT * FROM tb_calon_karyawan where nik ='$nik' || email='$email'");
-                $cek = mysqli_num_rows($qcek);
                 if ($cek > 0) {
                     $query = mysqli_query($conn, "UPDATE tb_calon_karyawan 
                     set nik ='$nik',nama_lengkap ='$nama_lengkap',tempat_lahir ='$tempat_lahir',
@@ -115,9 +122,7 @@ if ($modul == 'kriteria' && $ac == 'input') {
             values ('$id_calon_karyawan','$ck_fetch[id_alternatif]','$kriteria','2021')");
             // echo "<script>alert('Berhasil Menambah Data'); window.location.href='../adminweb/index.php?page=pelamar'; </script>";
         }
-        var_dump($id_calon_karyawan);
     }
-    die;
     $nilai_tertulis = $_POST['nilai_tertulis'];
     $nilai_praktek = $_POST['nilai_praktek'];
     if ($query = mysqli_query($conn, "INSERT INTO tb_nilai (id_calon_karyawan,nilai_wawancara,nilai_tertulis,nilai_praktek)

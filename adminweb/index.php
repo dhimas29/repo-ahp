@@ -2,6 +2,9 @@
 <?php session_start(); ?>
 <?php include('../layouts/header.php'); ?>
 
+<?php if (empty($_SESSION['username'])) {
+    echo "<script>alert('Silahkan Login Terlebih Dahulu');window.location.href='../index.php'</script>";
+} ?>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -80,7 +83,6 @@
         if (empty($_GET['page'])) {
             $url = "dashboard";
         } else {
-
             $url = $_GET['page'];
         }
         // var_dump($url);
@@ -114,6 +116,12 @@
                 break;
             case 'laporan':
                 include 'laporan.php';
+                break;
+            case 'laporan_hitung':
+                include 'laporan_hitung.php';
+                break;
+            case 'laporan_ranking':
+                include 'laporan_ranking.php';
                 break;
             case 'profile':
                 include 'profile.php';

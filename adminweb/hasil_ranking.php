@@ -22,7 +22,7 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                     <div class="card-tools float-left">
                         <ul class="pagination pagination-sm">
                             <li class="page-item active">
-                                <form action="../proses/prosespos.php?module=pos&act=kirim" method="POST">
+                                <!-- <form action="../proses/prosespos.php?module=pos&act=kirim" method="POST">
                                     <?php
                                     $query = mysqli_query($conn, "SELECT * FROM ranking 
                                     join tb_nilai on ranking.id_calon_karyawan = tb_nilai.id_calon_karyawan 
@@ -32,8 +32,8 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                                         <input type="hidden" value="<?= $row['id_calon_karyawan'] ?>" name="pos[<?php echo $row['id_calon_karyawan'] ?>]">
                                     <?php endwhile; ?>
                                     <button type="submit" class="page-link">Post</button>
-                                    <!-- <a href="" type="submit" class="page-link">Post</a> -->
-                                </form>
+                                    <a href="" type="submit" class="page-link">Post</a>
+                                </form> -->
                             </li>
                         </ul>
                     </div>
@@ -68,6 +68,8 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                                 FROM tb_nilai 
                                 left join ranking on tb_nilai.id_calon_karyawan = ranking.id_calon_karyawan
                                 left join tb_calon_karyawan on tb_nilai.id_calon_karyawan = tb_calon_karyawan.id 
+                                left join tb_user on tb_user.email = tb_calon_karyawan.email
+                                where tb_user.level ='pelamar'
                                 group by tb_nilai.id_calon_karyawan
                                 order by ranking.skor_bobot,periode desc");
                                 while ($row1 = mysqli_fetch_array($alt1a)) : ?>

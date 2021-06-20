@@ -38,4 +38,7 @@ if ($modul == 'kriteria' && $ac == 'ubah') {
 } elseif ($modul == 'konfirmasi' && $ac == 'kirim') {
     $query = mysqli_query($conn, "Update tb_user set level = 'pelamar' where email='$_GET[email]'");
     echo "<script>alert('Berhasil Aktivasi Akun'); window.location.href='../index.php'</script>";
+} elseif ($modul == 'konfirmasi_pelamar' && $ac == 'kirim') {
+    $query = mysqli_query($conn, "Update tb_user set level = 'karyawan' where email='$_GET[email]'");
+    echo "<script>alert('Terima kasih atas konfirmasinya'); window.location.href='../index.php'</script>";
 }

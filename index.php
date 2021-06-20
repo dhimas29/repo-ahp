@@ -69,7 +69,7 @@
                   <span class="icon-bar"></span>
                 </button>
                 <!-- Brand -->
-                <a class="navbar-brand page-scroll sticky-logo" href="index.html">
+                <a class="navbar-brand page-scroll sticky-logo" href="index.php">
                   <h1><span>Multidaya</span>Medika</h1>
                   <!-- Uncomment below if you prefer to use an image logo -->
                   <!-- <img src="home/img/logo.png" alt="" title=""> -->
@@ -179,7 +179,7 @@
   $konfirmasi = $_SERVER['REQUEST_URI'];
   // var_dump($konfirmasi);
   if ($konfirmasi == '/skripsi/index.php?konfirmasi=berhasil') : ?>
-    <div class="modal show" id="register">
+    <div class="modal show" id="konfirmasi">
       <form name="login" action="" method="POST" onSubmit="return validasi(this)">
         <div class="modal-dialog">
           <div class="modal-content">

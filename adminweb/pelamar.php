@@ -43,6 +43,8 @@
                                             $posisi = $p->cariPosisi($batas);
                                             $tampil = mysqli_query($conn, "SELECT *,tb_calon_karyawan.id as id_calon FROM tb_calon_karyawan
                                             left join tb_nilai on tb_nilai.id_calon_karyawan = tb_calon_karyawan.id
+                                            left join tb_user on tb_user.email = tb_calon_karyawan.email
+                                            where tb_user.level = 'pelamar'
                                             group by id_calon
                                             order by id_calon asc limit $posisi,$batas");
                                             $no = $posisi + 1;

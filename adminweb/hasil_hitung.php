@@ -63,6 +63,7 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                                     FROM tb_nilai 
                                     left join tb_alternatif on tb_nilai.id_alternatif = tb_alternatif.id_alternatif
                                     left join tb_kriteria on tb_alternatif.id_kriteria = tb_kriteria.id_kriteria
+                                   
                                     "
                                 );
                                 while ($ro = mysqli_fetch_array($datakk)) : ?>
@@ -88,6 +89,8 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                                 $data = mysqli_query($conn, "SELECT * FROM tb_nilai 
                                 left join tb_calon_karyawan on tb_calon_karyawan.id = tb_nilai.id_calon_karyawan 
                                 left join ranking on ranking.id_calon_karyawan = tb_nilai.id_calon_karyawan
+                                left join tb_user on tb_user.email = tb_calon_karyawan.email
+                                    where tb_user.level = 'pelamar'
                                 group by tb_nilai.id_calon_karyawan order by ranking.skor_bobot desc");
                                 while ($rowdata = mysqli_fetch_array($data)) : ?>
                                     <tr>
@@ -115,8 +118,8 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                                             $jml = mysqli_query(
                                                 $conn,
                                                 "SELECT *,AVG(jum_alt_kri.hasil_alt_kri*tb_nilai.nilai) as total from jum_alt_kri 
-                                    left join tb_nilai on tb_nilai.id_alternatif = jum_alt_kri.id_alternatif
-                                    where tb_nilai.id_calon_karyawan = '$rowarga[id_calon_karyawan]'"
+                                                left join tb_nilai on tb_nilai.id_alternatif = jum_alt_kri.id_alternatif
+                                                where tb_nilai.id_calon_karyawan = '$rowarga[id_calon_karyawan]'"
                                             );
                                             while ($tesjml = mysqli_fetch_array($jml)) {
                                                 if ($query = mysqli_query($conn, "INSERT INTO ranking(skor_bobot,id_calon_karyawan)
@@ -144,6 +147,9 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                                     FROM tb_nilai 
                                     left join tb_alternatif on tb_nilai.id_alternatif = tb_alternatif.id_alternatif
                                     left join tb_kriteria on tb_alternatif.id_kriteria = tb_kriteria.id_kriteria
+                                    left join tb_calon_karyawan on tb_nilai.id_calon_karyawan = tb_calon_karyawan.id
+                                    left join tb_user on tb_user.email = tb_calon_karyawan.email
+                                    where tb_user.level = 'pelamar'
                                     "
                                     ));
                                     $jmlhalaman  = $p->jumlahHalaman($jmldata, $batas);

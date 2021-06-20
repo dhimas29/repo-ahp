@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="../adminweb/index.php" class="brand-link">
         <img src="../assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">PT. Multidaya Medika </span>
     </a>
@@ -154,11 +154,11 @@
                             </p>
                             </a>
                 </li> -->
-                <?php if ($_SESSION['level'] == 'pelamar') : ?>
+                <?php if (($_SESSION['level'] == 'pelamar') || ($_SESSION['level'] == 'karyawan')) : ?>
                     <li class="nav-item">
-                        <?php if (($pecah == 'pengalaman') || ($pecah == 'pendidikan')) { ?>
+                        <?php if (($pecah == 'pengalaman') || ($pecah == 'pendidikan') || ($pecah == 'profile')) { ?>
                             <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-calculator"></i>
+                                <i class="nav-icon fas fa-user-cog"></i>
                                 <p>
                                     Pengaturan Akun
                                     <i class="right fas fa-angle-left"></i>
@@ -167,7 +167,7 @@
                             <ul class="nav nav-treeview" style="display: block;">
                             <?php } else { ?>
                                 <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-calculator"></i>
+                                    <i class="nav-icon fas fa-user-cog"></i>
                                     <p>
                                         Pengaturan Akun
                                         <i class="right fas fa-angle-left"></i>
@@ -175,6 +175,19 @@
                                 </a>
                                 <ul class="nav nav-treeview" style="display: none;">
                                 <?php } ?>
+                                <li class="nav-item">
+                                    <?php if ($pecah == 'profile') {
+                                    ?>
+                                        <a href="index.php?page=profile" class="nav-link active">
+                                        <?php } else { ?>
+                                            <a href="index.php?page=profile" class="nav-link">
+                                            <?php } ?>
+                                            <i class="nav-icon far fa-circle nav-icon"></i>
+                                            <p>
+                                                Profile
+                                            </p>
+                                            </a>
+                                </li>
                                 <li class="nav-item">
                                     <?php if ($pecah == 'pengalaman') {
                                     ?>
@@ -269,7 +282,7 @@
                                 </ul>
                     </li>
                 <?php endif; ?>
-                <?php if (($_SESSION['level'] == 'admin') || ($_SESSION['level'] == 'manager')) : ?>
+                <?php if (($_SESSION['level'] == 'pimpinan')) : ?>
                     <li class="nav-item">
                         <?php if ($pecah == 'laporan') {
                         ?>
@@ -279,7 +292,7 @@
                                 <?php } ?>
                                 <i class="nav-icon fas fa-folder"></i>
                                 <p>
-                                    Laporan
+                                    Lihat Laporan
                                 </p>
                                 </a>
                     </li>

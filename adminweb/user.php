@@ -217,7 +217,7 @@
                                     <select name="level" class="form-control select2bs4 select2-hidden-accessible" style="width: 100%;" data-select2-id="17" tabindex="-1" aria-hidden="true">
                                         <option selected="selected" data-select2-id="19">-- Pilih --</option>
                                         <option value="admin">Admin</option>
-                                        <option value="manager">Manager</option>
+                                        <option value="pimpinan">Pimpinan</option>
                                     </select>
                                 </div>
                             </div>

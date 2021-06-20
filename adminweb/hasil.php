@@ -68,6 +68,8 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                                 left join tb_pengalaman_kerja on tb_pengalaman_kerja.id_calon_karyawan = tb_calon_karyawan.id
                                 left join tb_nilai on tb_nilai.id_calon_karyawan = tb_calon_karyawan.id
                                 left join tb_alternatif on tb_alternatif.id_alternatif = tb_nilai.id_alternatif
+                                left join tb_user on tb_user.email = tb_calon_karyawan.email
+                                where tb_user.level = 'pelamar'
                                 group by tb_calon_karyawan.id
                                 order by id_kriteria asc limit $posisi,$batas
                                 ");
@@ -80,7 +82,9 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                                         <?php $usoz = mysqli_query($conn, "SELECT * FROM tb_calon_karyawan 
                                         join tb_nilai on tb_nilai.id_calon_karyawan = tb_calon_karyawan.id
                                         join jum_alt_kri on tb_nilai.id_alternatif = jum_alt_kri.id_alternatif
-                                        where tb_calon_karyawan.id = '$row1[id_calon]'
+                                        left join tb_user on tb_user.email = tb_calon_karyawan.email
+                                        where tb_user.level = 'pelamar'
+                                        and tb_calon_karyawan.id = '$row1[id_calon]'
                                         order by tb_calon_karyawan.id,jum_alt_kri.id_kriteria asc
                                         ");
                                         while ($rusoz = mysqli_fetch_array($usoz)) :
@@ -94,6 +98,8 @@ $stmtx2y = mysqli_query($conn, "SELECT * FROM tb_kriteria");
                                     left join tb_pengalaman_kerja on tb_pengalaman_kerja.id_calon_karyawan = tb_calon_karyawan.id
                                     left join tb_nilai on tb_nilai.id_calon_karyawan = tb_calon_karyawan.id
                                     left join tb_alternatif on tb_alternatif.id_alternatif = tb_nilai.id_alternatif
+                                    left join tb_user on tb_user.email = tb_calon_karyawan.email
+                                    where tb_user.level = 'pelamar'
                                     group by tb_calon_karyawan.id
                                     order by id_kriteria asc "));
                                     $jmlhalaman  = $p->jumlahHalaman($jmldata, $batas);
